@@ -1,0 +1,14 @@
+{
+    "name": "vladimirb/mvc.fw1",
+    "authors": [
+        {
+            "name": "vladimirB",
+            "email": "vladimirzq@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./app/"
+        }
+    },
+}

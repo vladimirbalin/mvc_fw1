@@ -1,4 +1,8 @@
 <?php
-require_once '../app/bootstrap.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$app = new Core();
+use app\libraries\Core;
+use app\config\Config;
+
+
+$app = new Core(new Config());
