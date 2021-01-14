@@ -6,13 +6,12 @@ namespace app\config;
 class Config
 {
     const CONFIG = [
-        'APP_ROOT' => APP_ROOT,
-        'URL_ROOT' => 'url_root',
-        'SITE_NAME' => 'site_name',
+        'SITE_NAME' => 'Blog app',
+        'URL_ROOT' => 'http://mvc.fw1',
         'DB_HOST' => '127.0.0.1',
         'DB_USERNAME' => 'root',
         'DB_PASSWORD' => 'root',
-        'DB_NAME' => 'db_name',
+        'DB_NAME' => 'shareposts',
     ];
 
     public function __construct()
@@ -23,4 +22,4 @@ class Config
     }
 }
 
-define('APP_ROOT', dirname(__FILE__, 2));
+define('APP_ROOT', dirname(dirname(__FILE__)));

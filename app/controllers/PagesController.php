@@ -1,5 +1,6 @@
 <?php
 
+namespace app\controllers;
 
 use app\libraries\Controller;
 
@@ -11,7 +12,7 @@ class PagesController extends Controller
 
     public function index()
     {
-        $params = ['title' => 'Welcome bro!'];
+        $params = ['title' => 'Welcome bros!'];
         $this->render('pages/index', $params);
     }
 

@@ -12,4 +12,5 @@ class Controller
             die('view doesn\'n exist');
         }
     }
+
 }
