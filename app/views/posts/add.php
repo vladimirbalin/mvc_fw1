@@ -7,7 +7,7 @@ require_once APP_ROOT . "/views/inc/header.php"; ?>
             posts</a>
         <div class="card car-body bg-light my-5">
             <h2 class="my-3 text-center">Add new post</h2>
-            <?php SessionHelper::flash('post_info', 'Post added'); ?>
+            <?php SessionHelper::flash('post_info'); ?>
         </div>
         <form method="post">
             <div class="row">

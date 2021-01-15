@@ -4,7 +4,6 @@ require_once APP_ROOT . "/views/inc/header.php"; ?>
 <div class="d-flex justify-content-around align-items-center my-4">
     <div class="">
         <h1>Posts</h1>
-
     </div>
     <div class="">
         <a href="/posts/add" class="btn btn-primary float-end"><i class="bi bi-pencil"></i> Add post</a>

@@ -6,7 +6,7 @@ use app\config\Config;
 
 class Core
 {
-    protected $currentController = 'PagesController';
+    protected $currentController;
     protected $currentAction = 'index';
     protected $params = [];
     public static Request $request;
@@ -26,8 +26,10 @@ class Core
             $this->currentController = new $controllerName();
             unset($url[0]);
         } else {
-            $this->currentController = "app\controllers\\$this->currentController";
-            $this->currentController = new $this->currentController();
+//            $this->currentController = "app\controllers\\$this->currentController";
+//            $this->currentController = new $this->currentController();
+            require_once "../app/views/_404/_404.php";
+            exit();
         }
 
         if ($actionName && method_exists($this->currentController, $actionName)) {
