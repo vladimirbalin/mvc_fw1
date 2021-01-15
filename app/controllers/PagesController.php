@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\helpers\SessionHelper;
+use app\helpers\UrlHelper;
 use app\libraries\Controller;
 
 class PagesController extends Controller
@@ -12,6 +14,7 @@ class PagesController extends Controller
 
     public function index()
     {
+        if(SessionHelper::isLoggedIn()) UrlHelper::simple_redirect('posts');
         $params = ['title' => 'Welcome bros!'];
         $this->render('pages/index', $params);
     }

@@ -15,7 +15,6 @@ class UserModel
 
     public function createNewUser($name, $email, $password)
     {
-
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
         $this->db->query('INSERT INTO users (name, email, password) VALUES (:name,:email,:password_hash)');
         $this->db->bind(':name', $name);
@@ -47,5 +46,13 @@ class UserModel
             return $user;
         }
         return false;
+    }
+
+    public function getUser($user_id)
+    {
+        $this->db->query('SELECT * FROM users WHERE user_id=:user_id');
+        $this->db->bind(':user_id', $user_id);
+
+        return $this->db->single();
     }
 }

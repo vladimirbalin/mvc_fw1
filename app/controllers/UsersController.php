@@ -64,10 +64,13 @@ class UsersController extends Controller
 
                 if ($this->userModel->createNewUser($params['name'], $params['email'], $params['password'])) {
                     SessionHelper::flash('register_success', 'You are registered and can log in');
-//                    $this->render('users/login');
                     UrlHelper::simple_redirect('users/login');
                 } else {
-                    die('something went wrong');
+                    foreach ($params['errors'] as $field => $value) {
+                        $params['errors'][$field] = 'database problems';
+                    }
+
+                    $this->render('posts/add', $params);
                 };
 
             } else {
@@ -146,19 +149,15 @@ class UsersController extends Controller
     {
         unset($_SESSION['user_id'], $_SESSION['user_email'], $_SESSION['user_email']);
         UrlHelper::simple_redirect('pages/index');
-
     }
 
-    private function isLoggedIn()
-    {
-        return isset($_SESSION['user_id']);
-    }
+
 
     private function createUserSession($user)
     {
-        $_SESSION['user_id'] = $user->id;
+        $_SESSION['user_id'] = $user->user_id;
         $_SESSION['user_email'] = $user->email;
         $_SESSION['user_name'] = $user->name;
-        UrlHelper::simple_redirect('pages/index');
+        UrlHelper::simple_redirect('posts/index');
     }
 }

@@ -65,14 +65,18 @@ class Database
 
     public function resultSet()
     {
-        $this->stmt->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_OBJ);
+        if ($this->stmt->execute()) {
+            return $this->stmt->fetchAll(PDO::FETCH_OBJ);
+        }
+        return false;
     }
 
     public function single()
     {
-        $this->stmt->execute();
-        return $this->stmt->fetch(PDO::FETCH_OBJ);
+        if ($this->stmt->execute()) {
+            return $this->stmt->fetch(PDO::FETCH_OBJ);
+        }
+        return false;
     }
 
     public function rowCount()
